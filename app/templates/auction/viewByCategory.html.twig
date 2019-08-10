@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.auction_category_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.auction_category_list'|trans({'%category_name%': categoryName|default('')}) }}</h1>
+
+    <div class="row">
+        <div class="col-lg-2 mb-4">
+            {% if categories is defined and categories|length %}
+                <h3>{{ 'title.categories_list' }}</h3>
+                <ul class="categories-list">
+                    {% for category in categories %}
+                        <li class="category-item">
+                            <a href="{{ url('auction_view_by_category', {categoryName: category.categoryName}) }}" title="{{ category.categoryName }}">
+                                {{ category.categoryName }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>
+                    {{ 'message.empty_list'|trans }}
+                </p>
+            {% endif %}
+        </div>
+
+    <div class="col-lg-10 mb-4">
+        {% if pagination is defined and pagination|length %}
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+                    {% for auction in pagination %}
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <div class="col-auto">
+                                    <img src="//placehold.it/200" class="img-fluid" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="{{ url('auction_view', {id: auction.id}) }}" title="{{ 'action.view'|trans }}">
+                                                {{ auction.product.productName }}
+                                            </a>
+                                        </h4>
+                                        <p>{{ 'label.id' }}: {{ auction.id }} </p>
+                                        <p>{{ 'label.price' }}: {{ auction.startPrice }} </p>
+                                        <p>{{ 'label.end_date' }}: {{ auction.endDate|date('Y/m/d') }} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    {% endfor %}
+
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        {% else %}
+            <p>
+                {{ 'message.empty_list'|trans }}
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}

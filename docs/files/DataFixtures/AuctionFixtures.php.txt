@@ -1,0 +1,47 @@
+<?php
+/**
+ * Auction fixtures.
+ */
+
+namespace App\DataFixtures;
+
+use App\Entity\Auction;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+
+/**
+ * Class AuctionFixtures.
+ */
+class AuctionFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
+{
+    /**
+     * Load data.
+     *
+     * @param \Doctrine\Common\Persistence\ObjectManager $manager Object manager
+     */
+    public function loadData(ObjectManager $manager): void
+    {
+        $this->createMany(200, 'auctions', function ($i) {
+            $auction = new Auction();
+            $auction->setProduct($this->getRandomReference('products'));
+            $auction->setStartDate($this->faker->dateTimeBetween('-100 days', '-1 days'));
+            $auction->setEndDate($this->faker->dateTimeBetween('+30 days', '+100 days'));
+            $auction->setStartPrice(0.1);
+
+            return $auction;
+        });
+
+        $manager->flush();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return array Array of dependencies
+     */
+    public function getDependencies(): array
+    {
+        return [ProductFixtures::class];
+    }
+}
+

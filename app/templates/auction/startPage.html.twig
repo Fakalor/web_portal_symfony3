@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.auction_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.auction_list'|trans }}</h1>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-2 mb-4">
+            {% if categories is defined and categories|length %}
+                <h3>{{ 'title.categories_list'|trans }}</h3>
+                <ul class="categories-list">
+                    {% for category in categories %}
+                        <li class="category-item">
+                            <a href="{{ url('auction_view_by_category', {categoryName: category.categoryName}) }}" title="{{ category.categoryName }}">
+                                {{ category.categoryName }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>
+                    {{ 'message.empty_list'|trans }}
+                </p>
+            {% endif %}
+        </div>
+
+        <div class="col-lg-10 mb-4">
+            {% for category in categories %}
+                {% set countAuction = 0 %}
+                <h2>{{ category.categoryName }}</h2>
+
+                <div class="row">
+                    {% if auctions is defined and auctions|length %}
+                        {% for auction in auctions %}
+                            {% if auction.product.productCategory == category and countAuction < 4 %}
+                            {% set countAuction = countAuction + 1 %}
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                    <div class="card h-100">
+                                        <a href="{{ url('auction_view', {id: auction.id}) }}" title="{{ 'action.view'|trans }}">
+                                            <img class="card-img-top" src="http://placehold.it/700x400" alt="">
+                                        </a>
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="{{ url('auction_view', {id: auction.id}) }}" title="{{ 'action.view'|trans }}">
+                                                    {{ auction.product.productName }}
+                                                </a>
+                                            </h4>
+                                            <p>{{ 'label.id'|trans }}: {{ auction.id }} </p>
+                                            <p>{{ 'label.end_date'|trans }}: {{ auction.endDate|date('Y/m/d') }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="form-inline ml-auto">
+                            <a class="btn btn-primary" href="{{ url('auction_view_by_category', {categoryName: category.categoryName}) }}" title="{{ category.categoryName }}" role="button">
+                                {{ 'button.see_more'|trans }}
+                            </a>
+                        </div>
+                    {% else %}
+                        <p>
+                            {{ 'message.empty_list'|trans }}
+                        </p>
+                    {% endif %}
+                </div>
+                <hr class="divider">
+                <br>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

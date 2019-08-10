@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.product_category'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.product_category_view'|trans({'%id%': productCategory.id|default('')}) }}</h1>
+    {% if productCategory is defined and productCategory|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ productCategory.id }}</dd>
+            <dt>{{ 'label.category_name'|trans }}</dt>
+            <dd>{{ productCategory.categoryName }}</dd>
+        </dl>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+    <div class="form-group row float-sm-right">
+        <a href="{{ url('product_category_index') }}" class="btn btn-primary">
+            {{ 'action.back_to_list'|trans }}
+        </a>
+    </div>
+
+{% endblock %}

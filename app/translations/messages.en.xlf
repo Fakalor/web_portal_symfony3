@@ -1,0 +1,543 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="title.product_category_list">
+                 <source>title.product_category_list</source>
+                 <target>Category list</target>
+            </trans-unit>
+            <trans-unit id="action.new">
+                 <source>action.new</source>
+                 <target>New</target>
+            </trans-unit>
+            <trans-unit id="label.category_name">
+                  <source>label.category_name</source>
+                  <target>Category name</target>
+            </trans-unit>
+            <trans-unit id="label.actions">
+                  <source>label.actions</source>
+                  <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="action.view">
+                   <source>action.view</source>
+                   <target>View</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                   <source>action.edit</source>
+                   <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                   <source>action.delete</source>
+                   <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                   <source>message.empty_list</source>
+                   <target>Empty list</target>
+            </trans-unit>
+            <trans-unit id="title.product_category">
+                   <source>title.product_category</source>
+                   <target>Product category</target>
+            </trans-unit>
+            <trans-unit id="title.product_category_view ">
+                   <source>title.product_category_view </source>
+                   <target>View product category</target>
+            </trans-unit>
+            <trans-unit id="message.item_not_found">
+                   <source>message.item_not_found</source>
+                   <target>Item not found</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                   <source>action.back_to_list</source>
+                   <target>Back to list</target>
+            </trans-unit>
+            <trans-unit id="title.control_panel">
+                   <source>title.control_panel</source>
+                   <target>Control panel</target>
+            </trans-unit>
+            <trans-unit id="action.view_products">
+                   <source>action.view_products</source>
+                   <target>View products</target>
+            </trans-unit>
+            <trans-unit id="action.auction_index">
+                   <source>action.auction_index</source>
+                   <target>View auctions</target>
+            </trans-unit>
+            <trans-unit id="action.deal_index">
+                   <source>action.deal_index</source>
+                   <target>View deals</target>
+            </trans-unit>
+            <trans-unit id="action.product_category_index">
+                   <source>action.product_category_index</source>
+                   <target>View product categories</target>
+            </trans-unit>
+            <trans-unit id="action.new_product">
+                   <source>action.new_product</source>
+                   <target>New product</target>
+            </trans-unit>
+            <trans-unit id="action.auction_new">
+                   <source>action.auction_new</source>
+                   <target>New auction</target>
+            </trans-unit>
+            <trans-unit id="action.auction_win">
+                   <source>action.auction_win</source>
+                   <target>Won auctions</target>
+            </trans-unit>
+            <trans-unit id="action.user_change_password">
+                   <source>action.user_change_password</source>
+                   <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="action.user_contact_details_edit">
+                   <source>action.user_contact_details_edit</source>
+                   <target>Edit contact details</target>
+            </trans-unit>
+            <trans-unit id="action.user_contact_details_new">
+                   <source>action.user_contact_details_new</source>
+                   <target>Add contact details</target>
+            </trans-unit>
+            <trans-unit id="message.access_denied">
+                   <source>message.access_denied</source>
+                   <target>Access denied</target>
+            </trans-unit>
+            <trans-unit id="title.user_list">
+                   <source>title.user_list</source>
+                   <target>User list</target>
+            </trans-unit>
+            <trans-unit id="label.role">
+                   <source>label.role</source>
+                   <target>Role</target>
+            </trans-unit>
+            <trans-unit id="label.login">
+                   <source>label.login</source>
+                   <target>Login</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                   <source>label.email</source>
+                   <target>Email</target>
+            </trans-unit>
+            <trans-unit id="title.user_view">
+                   <source>title.user_view</source>
+                   <target>View user</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                   <source>label.password</source>
+                   <target>Password</target>
+            </trans-unit>
+            <trans-unit id="label.warning">
+                   <source>label.warning</source>
+                   <target>Warning</target>
+            </trans-unit>
+            <trans-unit id="label.ban">
+                   <source>label.ban</source>
+                   <target>Ban</target>
+            </trans-unit>
+            <trans-unit id="action.change_role">
+                   <source>action.change_role</source>
+                   <target>Change role</target>
+            </trans-unit>
+            <trans-unit id="title.auction_list">
+                   <source>title.auction_list</source>
+                   <target>Auction list</target>
+            </trans-unit>
+            <trans-unit id="button.see_more">
+                   <source>button.see_more</source>
+                   <target>See more</target>
+            </trans-unit>
+            <trans-unit id="label.start_date">
+                   <source>label.start_date</source>
+                   <target>Start date</target>
+            </trans-unit>
+            <trans-unit id="label.end_date">
+                   <source>label.end_date</source>
+                   <target>End date</target>
+            </trans-unit>
+            <trans-unit id="label.start_price">
+                   <source>label.start_price</source>
+                   <target>Actual price</target>
+            </trans-unit>
+            <trans-unit id="title.auction_category_list">
+                   <source>title.auction_category_list</source>
+                   <target>Auction by category</target>
+            </trans-unit>
+            <trans-unit id="title.auction_view">
+                   <source>title.auction_view</source>
+                   <target>Auction view</target>
+            </trans-unit>
+            <trans-unit id="label.product_name">
+                   <source>label.product_name</source>
+                   <target>Product name</target>
+            </trans-unit>
+            <trans-unit id="label.product_category">
+                   <source>label.product_category</source>
+                   <target>Product category</target>
+            </trans-unit>
+            <trans-unit id="label.user_product">
+                   <source>label.user_product</source>
+                   <target>User</target>
+            </trans-unit>
+            <trans-unit id="label.description">
+                   <source>label.description</source>
+                   <target>Description</target>
+            </trans-unit>
+            <trans-unit id="action.new_deal">
+                   <source>action.new_deal</source>
+                   <target>New deal</target>
+            </trans-unit>
+            <trans-unit id="label.deals">
+                   <source>label.deals</source>
+                   <target>Deals</target>
+            </trans-unit>
+            <trans-unit id="label.user">
+                   <source>label.user</source>
+                   <target>User</target>
+            </trans-unit>
+            <trans-unit id="label.price">
+                   <source>label.price</source>
+                   <target>Price</target>
+            </trans-unit>
+            <trans-unit id="title.deal_list">
+                   <source>title.deal_list</source>
+                   <target>Deal list</target>
+            </trans-unit>
+            <trans-unit id="label.product">
+                   <source>label.product</source>
+                   <target>Product</target>
+            </trans-unit>
+            <trans-unit id="label.amount">
+                   <source>label.amount</source>
+                   <target>Amount</target>
+            </trans-unit>
+            <trans-unit id="title.deal_view">
+                   <source>title.deal_view</source>
+                   <target>Deal view</target>
+            </trans-unit>
+            <trans-unit id="title.login">
+                   <source>title.login</source>
+                   <target>Login</target>
+            </trans-unit>
+            <trans-unit id="action.login">
+                   <source>action.login</source>
+                   <target>Login</target>
+            </trans-unit>
+            <trans-unit id="action.register">
+                   <source>action.register</source>
+                   <target>Register</target>
+            </trans-unit>
+            <trans-unit id="title.product_list">
+                   <source>title.product_list</source>
+                   <target>Product list</target>
+            </trans-unit>
+            <trans-unit id="title.product_view">
+                   <source>title.product_view</source>
+                   <target>Product view</target>
+            </trans-unit>
+            <trans-unit id="label.descrition">
+                   <source>label.descrition</source>
+                   <target>Description</target>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                   <source>action.logout</source>
+                   <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="action.control_panel">
+                   <source>action.control_panel</source>
+                   <target>Control panel</target>
+            </trans-unit>
+            <trans-unit id="message.form_error">
+                   <source>message.form_error</source>
+                   <target>Form error</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                   <source>action.save</source>
+                   <target>Save</target>
+            </trans-unit>
+            <trans-unit id="title.user_details_view">
+                   <source>title.user_details_view</source>
+                   <target>View user contact details</target>
+            </trans-unit>
+            <trans-unit id="title.product_category_view">
+                   <source>title.product_category_view</source>
+                   <target>View product category</target>
+            </trans-unit>
+            <trans-unit id="title.hello_admin">
+                   <source>title.hello_admin</source>
+                   <target>Hello admin</target>
+            </trans-unit>
+            <trans-unit id="title.hello_user">
+                    <source>title.hello_user</source>
+                    <target>Hello user</target>
+            </trans-unit>
+            <trans-unit id="label.view_products">
+                    <source>label.view_products</source>
+                    <target>View products</target>
+            </trans-unit>
+            <trans-unit id="label.view_auctions">
+                    <source>label.view_auctions</source>
+                    <target>View auctions</target>
+            </trans-unit>
+            <trans-unit id="label.view_deals">
+                    <source>label.view_deals</source>
+                    <target>View deals</target>
+            </trans-unit>
+            <trans-unit id="label.view_categories">
+                     <source>label.view_categories</source>
+                     <target>View categories</target>
+            </trans-unit>
+            <trans-unit id="label.new_categories">
+                     <source>label.new_categories</source>
+                     <target>New categories</target>
+            </trans-unit>
+            <trans-unit id="action.product_category_new">
+                     <source>action.product_category_new</source>
+                     <target>New category</target>
+            </trans-unit>
+            <trans-unit id="label.new_product">
+                     <source>label.new_product</source>
+                     <target>New product</target>
+            </trans-unit>
+            <trans-unit id="label.auction_new">
+                     <source>label.auction_new</source>
+                     <target>New auction</target>
+            </trans-unit>
+            <trans-unit id="label.auction_win">
+                     <source>label.auction_win</source>
+                     <target>Won auctions</target>
+            </trans-unit>
+            <trans-unit id="label.change_password">
+                     <source>label.change_password</source>
+                     <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="label.edit_contact_details">
+                     <source>label.edit_contact_details</source>
+                     <target>Edit contact details</target>
+            </trans-unit>
+            <trans-unit id="label.view_contact_details">
+                     <source>label.view_contact_details</source>
+                     <target>View contact details</target>
+            </trans-unit>
+            <trans-unit id="label.add_contact_details">
+                     <source>label.add_contact_details</source>
+                     <target>Add contact details</target>
+            </trans-unit>
+            <trans-unit id="title.categories_list">
+                      <source>title.categories_list</source>
+                      <target>Category list</target>
+            </trans-unit>
+            <trans-unit id="label.view_user">
+                      <source>label.view_user</source>
+                      <target>View user</target>
+            </trans-unit>
+            <trans-unit id="action.user_view">
+                      <source>action.user_view</source>
+                      <target>View user</target>
+            </trans-unit>
+            <trans-unit id="label.admin_degrade">
+                      <source>label.admin_degrade</source>
+                      <target>Admin degrade</target>
+            </trans-unit>
+            <trans-unit id="label.user_promote">
+                      <source>label.user_promote</source>
+                      <target>User promote</target>
+            </trans-unit>
+            <trans-unit id="label.user_delete">
+                      <source>label.user_delete</source>
+                      <target>User delete</target>
+            </trans-unit>
+            <trans-unit id="label.user_edit">
+                      <source>label.user_edit</source>
+                      <target>User edit</target>
+            </trans-unit>
+            <trans-unit id="label.auction_delete">
+                      <source>label.auction_delete</source>
+                      <target>Auction delete</target>
+            </trans-unit>
+            <trans-unit id="label.auction_edit">
+                      <source>label.auction_edit</source>
+                      <target>Auction edit</target>
+            </trans-unit>
+            <trans-unit id="label.product_delete">
+                      <source>label.product_delete</source>
+                      <target>Product delete</target>
+            </trans-unit>
+            <trans-unit id="label.product_edit">
+                      <source>label.product_edit</source>
+                      <target>Product edit</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                      <source>label.name</source>
+                      <target>Name</target>
+            </trans-unit>
+            <trans-unit id="label.surname">
+                     <source>label.surname</source>
+                     <target>Surname</target>
+            </trans-unit>
+            <trans-unit id="label.street">
+                     <source>label.street</source>
+                     <target>Street</target>
+            </trans-unit>
+            <trans-unit id="label.postal_code">
+                     <source>label.postal_code</source>
+                     <target>Postal code</target>
+            </trans-unit>
+            <trans-unit id="label.city">
+                     <source>label.city</source>
+                     <target>City</target>
+            </trans-unit>
+            <trans-unit id="label.country">
+                     <source>label.country</source>
+                     <target>Country</target>
+            </trans-unit>
+            <trans-unit id="label.phone">
+                     <source>label.phone</source>
+                     <target>Number phone</target>
+            </trans-unit>
+            <trans-unit id="label.date">
+                     <source>label.date</source>
+                     <target>Date</target>
+            </trans-unit>
+            <trans-unit id="label.old_password">
+                     <source>label.old_password</source>
+                     <target>Old password</target>
+            </trans-unit>
+            <trans-unit id="label.new_password">
+                     <source>label.new_password</source>
+                     <target>New password</target>
+            </trans-unit>
+            <trans-unit id="label.new_password_repeat">
+                     <source>label.new_password_repeat</source>
+                     <target>Repeat new password</target>
+            </trans-unit>
+            <trans-unit id="user_change_password">
+                     <source>user_change_password</source>
+                     <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="title.product_new">
+                     <source>title.product_new</source>
+                     <target>New product</target>
+            </trans-unit>
+            <trans-unit id="title.auction_new">
+                     <source>title.auction_new</source>
+                     <target>New auction</target>
+            </trans-unit>
+            <trans-unit id="title.product_category_delete">
+                     <source>title.product_category_delete</source>
+                     <target>Delete product category</target>
+            </trans-unit>
+            <trans-unit id="title.product_category_edit">
+                     <source>title.product_category_edit</source>
+                     <target>Edit product category</target>
+            </trans-unit>
+            <trans-unit id="title.product_category_new">
+                     <source>title.product_category_new</source>
+                     <target>New product category</target>
+            </trans-unit>
+            <trans-unit id="title.user_delete">
+                     <source>title.user_delete</source>
+                     <target>Delete user</target>
+            </trans-unit>
+            <trans-unit id="title.user_edit">
+                     <source>title.user_edit</source>
+                     <target>Edit user</target>
+            </trans-unit>
+            <trans-unit id="title.user_new">
+                     <source>title.user_new</source>
+                     <target>New user</target>
+            </trans-unit>
+            <trans-unit id="title.auction_delete">
+                     <source>title.auction_delete</source>
+                     <target>Delete auction</target>
+            </trans-unit>
+            <trans-unit id="title.auction_edit">
+                     <source>title.auction_edit</source>
+                     <target>Edit auction</target>
+            </trans-unit>
+            <trans-unit id="title.deal_delete">
+                     <source>title.deal_delete</source>
+                     <target>Delete deal</target>
+            </trans-unit>
+            <trans-unit id="title.deal_edit">
+                     <source>title.deal_edit</source>
+                     <target>Edit deal</target>
+            </trans-unit>
+            <trans-unit id="title.deal_new">
+                     <source>title.deal_new</source>
+                     <target>New deal</target>
+            </trans-unit>
+            <trans-unit id="title.product_delete">
+                     <source>title.product_delete</source>
+                     <target>Delete product</target>
+            </trans-unit>
+            <trans-unit id="title.product_edit">
+                     <source>title.product_edit</source>
+                     <target>Edit product</target>
+            </trans-unit>
+            <trans-unit id="title.user_contact_details_edit">
+                     <source>title.user_contact_details_edit</source>
+                     <target>Edit contact details</target>
+            </trans-unit>
+            <trans-unit id="title.user_contact_details_new">
+                     <source>title.user_contact_details_new</source>
+                     <target>New contact details</target>
+            </trans-unit>
+            <trans-unit id="label.phone_number">
+                     <source>label.phone_number</source>
+                     <target>Phone number</target>
+            </trans-unit>
+            <trans-unit id="label.choose_product">
+                     <source>label.choose_product</source>
+                     <target>Choose product</target>
+            </trans-unit>
+            <trans-unit id="label.choose_role">
+                     <source>label.choose_role</source>
+                     <target>Choose role</target>
+            </trans-unit>
+            <trans-unit id="label.choose_product_category">
+                     <source>label.choose_product_category</source>
+                     <target>Choose product</target>
+            </trans-unit>
+            <trans-unit id="title.user_change_role">
+                    <source>title.user_change_role</source>
+                    <target>Change role</target>
+            </trans-unit>
+            <trans-unit id="label.user_index">
+                    <source>label.user_index</source>
+                    <target>User index</target>
+            </trans-unit>
+            <trans-unit id="action.user_index">
+                    <source>action.user_index</source>
+                    <target>User index</target>
+            </trans-unit>
+            <trans-unit id="action.user_contact_details_view">
+                    <source>action.user_contact_details_view</source>
+                    <target>View contact details</target>
+            </trans-unit>
+            <trans-unit id="title.auctions_that_you_win">
+                    <source>title.auctions_that_you_win</source>
+                    <target>Auctions that you win</target>
+            </trans-unit>
+            <trans-unit id="title.auction_won">
+                    <source>title.auction_won</source>
+                    <target>Auction won</target>
+            </trans-unit>
+            <trans-unit id="message.created_successfully">
+                    <source>message.created_successfully</source>
+                    <target>Created successfully</target>
+            </trans-unit>
+            <trans-unit id="message.updated_successfully">
+                    <source>message.updated_successfully</source>
+                    <target>Updated successfully</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                    <source>message.deleted_successfully</source>
+                    <target>Deleted successfully</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

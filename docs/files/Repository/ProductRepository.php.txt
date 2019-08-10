@@ -1,0 +1,126 @@
+<?php
+/**
+ * Product repository.
+ */
+
+namespace App\Repository;
+
+use App\Entity\Product;
+use App\Entity\User;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+/**
+ * @method Product|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Product|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Product[]    findAll()
+ * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class ProductRepository extends ServiceEntityRepository
+{
+    /**
+     * ProductRepository constructor.
+     *
+     * @param \Symfony\Bridge\Doctrine\RegistryInterface $registry
+     */
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Product::class);
+    }
+
+    /**
+     * Query all records order by product name.
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('p.productName', 'ASC');
+    }
+
+    /**
+     * Query all user products.
+     *
+     * @param User $user
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    public function queryByUser(User $user): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('p.id', 'ASC')
+            ->where('p.user = :user')
+            ->setParameter('user', $user);
+    }
+
+    /**
+     * Save record.
+     *
+     * @param \App\Entity\Product $product Product entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Product $product): void
+    {
+        $this->_em->persist($product);
+        $this->_em->flush($product);
+    }
+
+    /**
+     * Delete record.
+     *
+     * @param \App\Entity\Product $product Product entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Product $product): void
+    {
+        $this->_em->remove($product);
+        $this->_em->flush($product);
+    }
+
+    /**
+     * Get or create new query builder.
+     *
+     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?: $this->createQueryBuilder('p');
+    }
+    // /**
+    //  * @return Product[] Returns an array of Product objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Product
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
+}
+

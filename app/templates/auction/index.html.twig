@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.auction_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.auction_list'|trans }}</h1>
+    <a href="{{ url('auction_new') }}" title="{{ 'action.new'|trans }}">
+        {{ 'action.new'|trans }}
+    </a>
+    {% for category in categories %}
+        <h2>{{ category.categoryName }}</h2>
+        {% if auctions is defined and auctions|length %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ 'label.id'|trans }}</th>
+                    <th>{{ 'label.start_date'|trans }}</th>
+                    <th>{{ 'label.end_date'|trans }}</th>
+                    <th>{{ 'label.start_price'|trans }}</th>
+                    <th>{{ 'label.actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for auction in auctions %}
+                    {% if auction.product.productCategory == category %}
+                        <tr>
+                            <td>{{ auction.id }}</td>
+                            <td>{{ auction.startDate|date('Y/m/d') }}</td>
+                            <td>{{ auction.endDate|date('Y/m/d') }}</td>
+                            <td>{{ auction.startPrice }}</td>
+                            <td>
+                                <a href="{{ url('auction_view', {id: auction.id}) }}" title="{{ 'action.view'|trans }}">
+                                    {{ 'action.view'|trans }}
+                                </a>
+                                <a href="{{ url('auction_edit', {id: auction.id}) }}" title="{{ 'action.edit'|trans }}">
+                                    {{ 'action.edit'|trans }}
+                                </a>
+                                <a href="{{ url('auction_delete', {id: auction.id}) }}" title="{{ 'action.delete'|trans }}">
+                                    {{ 'action.delete'|trans }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>
+                {{ 'message.empty_list'|trans }}
+            </p>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
+

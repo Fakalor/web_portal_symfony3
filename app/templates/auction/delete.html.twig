@@ -1,0 +1,9 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.auction_delete',
+    page_title_param: {'%id%': auction.id},
+    attr: {
+        method: 'DELETE',
+        action: url('auction_delete', {'id': auction.id}),
+    },
+    back_to_list_path: 'auction_index',
+} %}

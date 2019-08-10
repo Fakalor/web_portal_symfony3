@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.deal_view'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.product_view'|trans({'%id%': deak.id|default('')}) }}</h1>
+    {% if product is defined and product|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ product.id }}</dd>
+            <dt>{{ 'label.product_name'|trans }}</dt>
+            <dd>{{ product.productName }}</dd>
+            <dt>{{ 'label.product_category'|trans }}</dt>
+            <dd>{{ product.productCategory.categoryName }}</dd>
+            <dt>{{ 'label.user'|trans }}</dt>
+            <dd>{{ product.user.login }}</dd>
+
+            <dt>{{ 'label.descrition'|trans }}</dt>
+            <dd>{{ product.description }}</dd>
+        </dl>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <p>
+                {{ 'label.product_delete'|trans }}
+                <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_delete', {id: product.id})  }}">{{ 'action.delete'|trans }}</a>
+            </p>
+            <p>
+                {{ 'label.product_edit'|trans }}
+                <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_edit', {id: product.id})  }}">{{ 'action.edit'|trans }}</a>
+            </p>
+        {% endif %}
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

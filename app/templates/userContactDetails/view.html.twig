@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.user_details_view'|trans }}
+{% endblock %}
+
+{% block body %}
+    {% if details is defined and details|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ details.id }}</dd>
+            <dt>{{ 'label.name'|trans }}</dt>
+            <dd>{{ details.name }}</dd>
+            <dt>{{ 'label.surname'|trans }}</dt>
+            <dd>{{ details.surname }}</dd>
+            <dt>{{ 'label.street'|trans }}</dt>
+            <dd>{{ details.street }}</dd>
+            <dt>{{ 'label.postal_code'|trans }}</dt>
+            <dd>{{ details.postalCode }}</dd>
+            <dt>{{ 'label.city'|trans }}</dt>
+            <dd>{{ details.city }}</dd>
+            <dt>{{ 'label.country'|trans }}</dt>
+            <dd>{{ details.country }}</dd>
+            <dt>{{ 'label.phone'|trans }}</dt>
+            <dd>{{ details.phoneNumber }}</dd>
+        </dl>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

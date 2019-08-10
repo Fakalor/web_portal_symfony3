@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.auction_view'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.auction_view'|trans({'%id%': auction.id|default('')}) }}</h1>
+    {% if auction is defined and auction|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ auction.id }}</dd>
+            <dt>{{ 'label.product_name'|trans }}</dt>
+            <dd>{{ auction.product.productName }}</dd>
+            <dt>{{ 'label.product_category'|trans }}</dt>
+            <dd>{{ auction.product.productCategory.categoryName }}</dd>
+            <dt>{{ 'label.user_product'|trans }}</dt>
+            <dd>{{ auction.product.user.login }}</dd>
+
+            <dt>{{ 'label.start_date'|trans }}</dt>
+            <dd>{{ auction.startDate|date('Y/m/d') }}</dd>
+            <dt>{{ 'label.end_date'|trans }}</dt>
+            <dd>{{ auction.endDate|date('Y/m/d') }}</dd>
+            <dt>{{ 'label.start_price'|trans }}</dt>
+            <dd>{{ auction.startPrice }}</dd>
+
+            <dt>{{ 'label.description'|trans }}</dt>
+            <dd>{{ auction.product.description }}</dd>
+        </dl>
+
+        <div class="md-form my-0 ">
+            <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('deal_new', {id: auction.id}) }}">{{ 'action.new_deal'|trans }}</a>
+        </div>
+
+        <div>
+            <h2>{{ 'label.deals'|trans }}</h2>
+            {% if deals is defined and deals|length %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{{ 'label.user'|trans }}</th>
+                            <th>{{ 'label.price'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for deal in deals %}
+                            <tr>
+                                <td>{{ deal.user.login }}</td>
+                                <td>{{ deal.price }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>
+                    {{ 'message.item_not_found'|trans }}
+                </p>
+            {% endif %}
+        </div>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <p>
+            {{ 'label.auction_delete'|trans }}
+            <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('auction_delete', {id: auction.id})  }}">{{ 'action.delete'|trans }}</a>
+        </p>
+        <p>
+            {{ 'label.auction_edit'|trans }}
+            <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('auction_edit', {id: auction.id})  }}">{{ 'action.edit'|trans }}</a>
+        </p>
+    {% endif %}
+
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

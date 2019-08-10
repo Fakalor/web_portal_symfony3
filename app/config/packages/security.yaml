@@ -1,0 +1,68 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER]
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+
+                # redirect anonymous users to the login page
+                entry_point: App\Security\LoginFormAuthenticator
+
+            logout:
+                path: security_logout
+                target: auction_start_page
+
+            switch_user: false
+            logout_on_user_change: true
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/auction/[1-9]\d*/edit$, roles: ROLE_ADMIN }
+        - { path: ^/auction/[1-9]\d*/delete$, roles: ROLE_ADMIN }
+        - { path: ^/auction, roles: ROLE_USER}
+        - { path: ^/winAuctions, roles: ROLE_USER}
+        - { path: ^/user/$, roles: ROLE_ADMIN}
+        - { path: ^/user/[1-9]\d*/changeRole$, roles: ROLE_ADMIN}
+        - { path: ^/user/[1-9]\d*/delete$, roles: ROLE_ADMIN}
+        - { path: ^/user, roles: ROLE_USER}
+        - { path: ^/deal/[1-9]\d*/new$, roles: ROLE_USER }
+        - { path: ^/deal, roles: ROLE_ADMIN}
+        - { path: ^/productCategory, roles: ROLE_ADMIN}
+        - { path: ^/product/[1-9]\d*/delete$, roles: ROLE_ADMIN }
+        - { path: ^/product, roles: ROLE_USER}
+        - { path: ^/contactDetails, roles: ROLE_USER}
+
+

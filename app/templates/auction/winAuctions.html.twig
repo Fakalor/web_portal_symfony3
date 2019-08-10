@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.auction_category_list'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>{{ 'title.auctions_that_you_win'|trans }}</h2>
+            {% if auctionsYouWin is defined and auctionsYouWin|length %}
+                {% for auction in auctionsYouWin %}
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-auto">
+                                <img src="//placehold.it/200" class="img-fluid" alt="">
+                            </div>
+                            <div class="col">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{ url('auction_view', {id: auction.id}) }}" title="{{ 'action.view'|trans }}">
+                                            {{ auction.product.productName }}
+                                        </a>
+                                    </h4>
+                                    <p>{{ 'label.id' }}: {{ auction.id }} </p>
+                                    <p>{{ 'label.price' }}: {{ auction.startPrice }} </p>
+                                    <p>{{ 'label.end_date' }}: {{ auction.endDate|date('Y/m/d') }} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <p>
+                    {{ 'message.empty_list'|trans }}
+                </p>
+            {% endif %}
+        </div>
+
+        <div class="col-sm-6">
+            <h2>{{ 'title.auction_won'|trans }}</h2>
+            {% if auctionWon is defined and auctionWon|length %}
+                {% for auction in auctionWon %}
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-auto">
+                                <img src="//placehold.it/200" class="img-fluid" alt="">
+                            </div>
+                            <div class="col">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{ url('auction_view', {id: auction.id}) }}" title="{{ 'action.view'|trans }}">
+                                            {{ auction.product.productName }}
+                                        </a>
+                                    </h4>
+                                    <p>{{ 'label.id' }}: {{ auction.id }} </p>
+                                    <p>{{ 'label.price' }}: {{ auction.startPrice }} </p>
+                                    <p>{{ 'label.end_date' }}: {{ auction.endDate|date('Y/m/d') }} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <p>
+                    {{ 'message.empty_list'|trans }}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

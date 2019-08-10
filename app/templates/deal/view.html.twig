@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.deal_view'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.deal_view'|trans({'%id%': deak.id|default('')}) }}</h1>
+    {% if deal is defined and deal|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ deal.id }}</dd>
+            <dt>{{ 'label.product_name'|trans }}</dt>
+            <dd>{{ deal.auction.product.productName }}</dd>
+            <dt>{{ 'label.product_category'|trans }}</dt>
+            <dd>{{ deal.auction.product.productCategory.categoryName }}</dd>
+            <dt>{{ 'label.user'|trans }}</dt>
+            <dd>{{ deal.user.login }}</dd>
+
+            <dt>{{ 'label.price'|trans }}</dt>
+            <dd>{{ deal.price }}</dd>
+            <dt>{{ 'label.date'|trans }}</dt>
+            <dd>{{ deal.date|date('Y/m/d') }}</dd>
+        </dl>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.product_edit',
+    page_title_param: {'%id%': product.id},
+    attr: {
+        method: 'PUT',
+        action: url('product_edit', {'id': product.id}),
+    },
+    back_to_list_path: 'product_index',
+} %}

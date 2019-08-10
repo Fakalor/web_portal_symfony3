@@ -1,0 +1,71 @@
+<?php
+/**
+ * User fixtures.
+ */
+
+namespace App\DataFixtures;
+
+use App\Entity\User;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+/**
+ * Class UserFixtures.
+ */
+class UserFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
+{
+    /**
+     * Password encoder.
+     *
+     * @var \Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface
+     */
+    private $passwordEncoder;
+
+    /**
+     * UserFixtures constructor.
+     *
+     * @param \Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface $passwordEncoder Password encoder
+     */
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
+    /**
+     * Load data.
+     *
+     * @param \Doctrine\Common\Persistence\ObjectManager $manager Object manager
+     */
+    public function loadData(ObjectManager $manager): void
+    {
+        $this->createMany(10, 'users', function ($i) {
+            $user = new User();
+            $user->setRole($this->getRandomReference('roles'));
+            $user->setLogin($this->faker->userName);
+            $user->setEmail($this->faker->email);
+            $user->setPassword($this->passwordEncoder->encodePassword(
+                $user,
+                'password123'
+            ));
+            $user->setWarning(0);
+            $user->setBan(0);
+
+            $this->addReference('user'.$i, $user);
+
+            return $user;
+        });
+
+        $manager->flush();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return array Array of dependencies
+     */
+    public function getDependencies(): array
+    {
+        return [RoleFixtures::class];
+    }
+}

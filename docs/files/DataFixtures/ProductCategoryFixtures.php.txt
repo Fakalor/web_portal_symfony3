@@ -1,0 +1,32 @@
+<?php
+/**
+ * Product category fixtures.
+ */
+namespace App\DataFixtures;
+
+use App\Entity\ProductCategory;
+use Doctrine\Common\Persistence\ObjectManager;
+
+/**
+ * Class ProductCategoryFixtures.
+ */
+class ProductCategoryFixtures extends AbstractBaseFixtures
+{
+    /**
+     * Load data.
+     *
+     * @param \Doctrine\Common\Persistence\ObjectManager $manager Object manager
+     */
+    public function loadData(ObjectManager $manager): void
+    {
+        $this->createMany(10, 'categories_products', function ($i) {
+            $category = new ProductCategory();
+            $category->setCategoryName($this->faker->sentence(1));
+
+            return $category;
+        });
+
+        $manager->flush();
+    }
+}
+

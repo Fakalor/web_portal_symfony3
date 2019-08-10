@@ -1,0 +1,9 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.deal_edit',
+    page_title_param: {'%id%': deal.id},
+    attr: {
+        method: 'PUT',
+        action: url('deal_edit', {'id': deal.id}),
+    },
+    back_to_list_path: 'deal_index',
+} %}

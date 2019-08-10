@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.control_panel'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.control_panel'|trans }}</h1>
+
+
+    <div>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <h2>{{ 'title.hello_admin'|trans }} {{ user.login }}</h2>
+                <p>
+                    {{ 'label.view_products'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_index') }}">{{ 'action.view_products'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.view_auctions'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('auction_index') }}">{{ 'action.auction_index'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.view_deals'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('deal_index') }}">{{ 'action.deal_index'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.view_categories'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_category_index') }}">{{ 'action.product_category_index'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.new_categories'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_category_new') }}">{{ 'action.product_category_new'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.user_index'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('user_index') }}">{{ 'action.user_index'|trans }}</a>
+                </p>
+            {% else %}
+                <h2>{{ 'title.hello_user'|trans }} {{ user.login }}</h2>
+                <p>
+                    {{ 'label.view_products'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_index') }}">{{ 'action.view_products'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.new_product'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('product_new') }}">{{ 'action.new_product'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.auction_new'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('auction_new') }}">{{ 'action.auction_new'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.view_auctions'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('auction_index') }}">{{ 'action.auction_index'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.auction_win'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('auction_win') }}">{{ 'action.auction_win'|trans }}</a>
+                </p>
+
+            {% endif %}
+
+            <p>
+                {{ 'label.change_password'|trans }}
+                <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('user_change_password') }}">{{ 'action.user_change_password'|trans }}</a>
+            </p>
+            <p>
+                {{ 'label.view_user'|trans }}
+                <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('user_view', {id: app.user.id}) }}">{{ 'action.user_view'|trans }}</a>
+            </p>
+
+            {% if details is not null %}
+                <p>
+                    {{ 'label.edit_contact_details'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('user_contact_details_edit', {id: details.user.id}) }}">{{ 'action.user_contact_details_edit'|trans }}</a>
+                </p>
+                <p>
+                    {{ 'label.view_contact_details'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('user_contact_details_view', {id: details.user.id}) }}">{{ 'action.user_contact_details_view'|trans }}</a>
+                </p>
+            {% else %}
+                <p>
+                    {{ 'label.add_contact_details'|trans }}
+                    <a class="btn btn-outline-primary btn-md my-0 ml-sm-2" href="{{ url('user_contact_details_new') }}">{{ 'action.user_contact_details_new'|trans }}</a>
+                </p>
+            {% endif %}
+
+        {% else %}
+            <p>
+                {{ 'message.access_denied'|trans }}
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}

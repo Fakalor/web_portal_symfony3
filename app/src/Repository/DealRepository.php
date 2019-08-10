@@ -1,0 +1,125 @@
+<?php
+/**
+ * Deal repository.
+ */
+
+namespace App\Repository;
+
+use App\Entity\Deal;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+/**
+ * @method Deal|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Deal|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Deal[]    findAll()
+ * @method Deal[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class DealRepository extends ServiceEntityRepository
+{
+    /**
+     * DealRepository constructor.
+     *
+     * @param \Symfony\Bridge\Doctrine\RegistryInterface $registry
+     */
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Deal::class);
+    }
+
+    /**
+     * Query all records order by category name.
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('d.id', 'ASC');
+    }
+
+    /**
+     * Query records order by price.
+     *
+     * @param int $id
+     *
+     * @return \Doctrine\ORM\QueryBuilder QueryBuilder
+     */
+    public function queryByPrice(int $id): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->andWhere('d.auction_id = :id')
+            ->setParameter('id', $id);
+        //->orderBy('d.price', 'DESC');
+    }
+
+    /**
+     * Save record.
+     *
+     * @param \App\Entity\Deal $deal Deal entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Deal $deal): void
+    {
+        $this->_em->persist($deal);
+        $this->_em->flush($deal);
+    }
+
+    /**
+     * Delete record.
+     *
+     * @param \App\Entity\Deal $deal Deal entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Deal $deal): void
+    {
+        $this->_em->remove($deal);
+        $this->_em->flush($deal);
+    }
+
+    /**
+     * Get or create new query builder.
+     *
+     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?: $this->createQueryBuilder('d');
+    }
+
+    // /**
+    //  * @return Deal[] Returns an array of Deal objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('d.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Deal
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
+}
